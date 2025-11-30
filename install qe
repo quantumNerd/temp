@@ -1,1 +1,2 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+export PATH="/Users/USERNAME/src/q-e-qe-7.5/bin:$PATH"
