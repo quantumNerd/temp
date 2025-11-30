@@ -1,2 +1,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 export PATH="/Users/USERNAME/src/q-e-qe-7.5/bin:$PATH"
+
+cd test-suite
+make run-tests NPROCS=1
+make run-tests-ph NPROCS=1
