@@ -1,5 +1,11 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install gcc cmake fftw openblas wget git
 export PATH="/Users/USERNAME/src/q-e-qe-7.5/bin:$PATH"
+
+go to QE_HOME, copy the make_Mac.inc to the folder and rename it make.inc
+make -j 2 pw
+make -j 2 ph
+make -j 2 pp
 
 cd test-suite
 make run-tests NPROCS=1
