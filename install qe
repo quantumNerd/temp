@@ -1,12 +1,23 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install gcc cmake fftw openblas wget git
-export PATH="/Users/USERNAME/src/q-e-qe-7.5/bin:$PATH"
+mkdir ~/src
+cd ~/src
+curl -L -O https://gitlab.com/QEF/q-e/-/archive/qe-7.5/q-e-qe-7.5.tar.gz
+tar -zxvf q-e-qe-7.5.tar.gz
+cd q-e-qe-7.5
+./configure CC=/opt/homebrew/bin/gcc-15 CPP="/opt/homebrew/bin/gcc-15 -E" BLAS_LIBS="-framework Accelerate"
 
-go to QE_HOME, copy the make_Mac.inc to the folder and rename it make.inc
-make -j 2 pw
-make -j 2 ph
-make -j 2 pp
+make -j 2 pw ph pp
+echo 'export PATH="~/src/q-e-qe-7.5/bin:$PATH"' >> ~/.zprofile
 
 cd test-suite
 make run-tests NPROCS=1
 make run-tests-ph NPROCS=1
+
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 24
+
+node -v
+npm -v
