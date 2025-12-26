@@ -10,6 +10,21 @@ cd q-e-qe-7.5
 make -j 2 pw ph pp
 echo 'export PATH="~/src/q-e-qe-7.5/bin:$PATH"' >> ~/.zprofile
 
+(before make all)
+Open PIOUD/src/Makefile, remove or comment out the following two lines：
+F90FLAGS += -pg
+LDFLAGS  += -pg
+changing them to：
+# F90FLAGS += -pg
+# LDFLAGS  += -pg
+(otherwise:
+ld: library 'gcrt1.o' not found collect2: error: ld returned 1 exit status make[2]: *** [pioud.x] Error 1 make[1]: *** [all] Error 1 make: *** [pioud] Error 1”)
+
+
+Then:
+make all -j1
+
+
 cd test-suite
 make run-tests NPROCS=1
 make run-tests-ph NPROCS=1
