@@ -40,4 +40,12 @@ npm -v
 vasp6.5
 makefile.include
 fock.F
+"""
+  10  FORMAT(' Exchange correlation treatment:'  / &
+             '   ',A7,' = ',A,  '    functional components'/ & 
+"""
+"""
+  100 FORMAT(' Exchange correlation treatment:'  / &
+             '   ',A7,' = ',A,  '    functional components'/ & 
+"""
 make DEPS=1 -j N
