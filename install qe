@@ -12,7 +12,7 @@ cd q-e-qe-7.5
   CC=/opt/homebrew/bin/gcc-15 \
   CPP="/opt/homebrew/bin/gcc-15 -E" \
   BLAS_LIBS="-framework Accelerate" \
-  --with-hdf5=yes
+  --with-hdf5=yes --disable-parallel
 
 make -j 2 pw ph pp
 echo 'export PATH="~/src/q-e-qe-7.5/bin:$PATH"' >> ~/.zprofile
